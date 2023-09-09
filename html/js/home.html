@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">  
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      body{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: black;
+        line-height: 1.15;
+      }
+      #wrapper{
+        max-width: 1170px;
+        margin: 0 auto;
+      }
+      .nav{
+        font-size: 30px;
+        color: red;
+        font-weight: 600;
+      }
+      .headline{
+        text-align: center;
+        margin: 40px 0px;
+      }
+      h3{
+        
+        padding: 10px 20px;
+        text-transform:  uppercase;
+        border: 1px solid #bebebe;
+        display: inline-block;
+        color: #555;
+      }
+      ul.products{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      ul.products li{
+        flex-basis: 25%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+
+      }
+      ul.products li img{
+        max-width: 100%;
+        height: auto;
+      }
+      ul.products li .product-top{
+        position: relative;
+        overflow: hidden;
+      }
+      ul.products li .product-top .product-thumb{
+        display: block;
+
+      }
+      ul.products li:hover .product-top .product-thumb img{
+        filter: opacity(80%);
+
+      }
+      ul.products li .product-top .product-thumb img{
+        display: block;
+      }
+      ul.products li .product-top a.buy-now{
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 0px;
+        position: absolute;
+        width: 100%;
+        transition: 0.25s ease-in-out;
+        opacity: 0.9;
+      }
+      ul.products li:hover a.buy-now{
+        bottom: 0px;
+
+      }
+      ul.products li .product-info{
+        padding: 5px 0px;
+      }
+      
+      
+      ul.products li .product-info a{
+        display: block;
+        text-decoration: none;
+      }
+      ul.products li .product-info a.product-cat{
+       font-size: 11px;
+       text-transform: uppercase ;
+       color: #9e9e9e;
+       
+      }
+      ul.products li .product-info a.product-name{
+        color: #334862;
+        
+      }
+      ul.products li .product-info .product-price{
+        color: #111;
+        padding: 2px 0px;
+        font-weight: 600;
+      }
+
+
+   </style>
+  
+  </head>
+  <body>
+    
+      <main class="container-fluid">
+        <header  style="background-color: rgb(22, 20, 20) ; color: #ffffff; width: 1365px; margin-left: -15px;" >
+           <div class="row"> 
+            <nav class="navbar navbar-expand-sm  "  style="color: #ffffff;">
+                
+                
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item ">
+                            <img src="/ass1/html/images/wheystore.png" alt=""  style="width: 150px; height: 60px; margin-left: 20px;">
+                        </li>
+                       
+                        <form class="form-inline my-2 my-lg-0" style="margin-left: 250px">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" style="width: 400px;">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                        <li class="nav-item dropdown" style="margin-left: 200px;">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user    "></i> Tài Khoản</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="login.html">Đăng Nhập</a>
+                                <a class="dropdown-item" href="Account.html">Đăng Ký</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-product-list.html" style="font-size: 20px;"><span class="nav-link" href=""><i class="fas fa-shopping-cart" ></i> </span></a>
+                        </li>
+                    </ul>
+                   
+                </div>
+             </nav>
+
+                
+                
+              </div>
+
+            </header>
+            
+           </div>
+            <div class="row" >
+             <nav class="navbar navbar-expand-sm  "  style="color: #ffffff;">
+                
+                
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: 230px;">
+                        <li class="nav-item ">
+                          <a class="nav" href=""><span class="nav-link" href="#">Trang Chu</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav" href=""><span class="nav-link" href="#">WHEY</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav" href=""><span class="nav-link" href="#">MASS</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav" href=""><span class="nav-link" href="#">BCAA,EAA</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav" href=""><span class="nav-link" href="#">Vitamin</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav" href=""><span class="nav-link" href="#">Phụ Kiện</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav" href=""><span class="nav-link" href="#">Liên Hệ </span></a>
+                        </li>
+                        
+                       
+                    </ul>
+       
+                </div>
+             </nav>
+
+           </div>
+        
+        <section class="row">
+            <div class="col  ">
+             <div id="wrapper">
+                <div class="headline">
+                  <h3>Sản Phẩm Bán Chạy</h3>
+                </div>
+                <ul class="products">
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/rule1.png" alt="" >
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/mass1.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+ 
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Mass</a>
+                         <a href="" class="product-name">Mass Fusion 12lbs 5.4kg</a>
+                         <div class="product-price">1.690.000đ</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/mass2.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Mass</a>
+                         <a href="" class="product-name">Up Your Mass XXXL 1350 12lbs</a>
+                         <div class="product-price">1.750.000đ</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/whey2.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Whey Gold Standard 5lbs 2.27kg</a>
+                         <div class="product-price">1.800.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/whey1.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/mass4.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Mass</a>
+                         <a href="" class="product-name">Serious Mass 12lbs 5.44kg</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/mass3.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Mass</a>
+                         <a href="" class="product-name">Labrada Muscle Mass Gainer 12lbs 5.4Kg</a>
+                         <div class="product-price">2.700.000đ</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/vitamin1.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Vitamin</a>
+                         <a href="" class="product-name">Now Omega-3 200 viên</a>
+                         <div class="product-price">500.000đ</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/rule1.png" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/rule1.png" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/rule1.png" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/ass1/html/images/rule1.png" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="product-item">
+                      <div class="product-top">
+                        <a href="" class="product-thumb">
+                          <img src="/html/images/mass1.jpg" alt="">
+                        </a>
+                        <a href="" class="buy-now">Mua Ngay</a>
+
+                      </div>
+                      <div class="product-info"> 
+                         <a href="" class="product-cat">Whey</a>
+                         <a href="" class="product-name">Rule 1</a>
+                         <div class="product-price">1.700.000</div>
+                      </div>
+                    </div>
+                  </li>
+             </div>
+           
+
+            
+        </div>
+        </section>
+        <footer class="row" style="background-color: rgb(22, 20, 20); color: #ffffff;" >
+            <div class="footer-content">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 col-md-4 footer-item footer-item--showroom">
+                      <h4 class="footer-item__heading">Showroom</h4>
+                      <div class="footer-item__content">
+                        <div class="showroom">
+            <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Đống Đa</h6>
+            <p>Số 2 ngõ 121 Thái Hà, Đống Đa, Hà Nội</p>
+            </div>
+            <div class="showroom">
+            <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Hà Đông</h6>
+            <p>Số 14-LK 25 ( đối diện 86 ) Lê Lai, Hà Đông, Hà Nội</p>
+            </div>
+            <div class="showroom">
+            <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Cầu Giấy</h6>
+            <p>Số 22 ngõ 30 Trần Quý Kiên, Cầu Giấy, HN</p>
+            </div>
+            <div class="showroom">
+            <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Hải Phòng</h6>
+            <p>Số 748 Ngô Gia Tự, Hải An, Hải Phòng</p>
+            </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-5 footer-item footer-item--email">
+                      <h4 class="footer-item__heading">Nhập email nhận voucher giảm giá</h4>
+                      <div class="footer-item__content">
+                        <form class="form-subscribe" method="POST" action="?">
+                          <input type="hidden" name="action" value="willgroup_insert_email">
+                          <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Nhập email của bạn" name="email">
+                          </div>
+                          <button class="btn btn-default btn-subscribe" type="submit">
+                            <i class="ti-email"></i>
+                            Gửi              </button>
+                        </form>
+                        
+                        
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-3 footer-item">
+                      <h4 class="footer-item__heading">Link</h4>
+                      <div class="footer-item__content">
+                        <nav class="footer-nav"><ul id="menu-dieu-huong-footer" class="menu"><li id="menu-item-42405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42405"><a href="https://soccerstore.vn/huong-dan/">Hướng dẫn thanh toán</a></li>
+            <li id="menu-item-42407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42407"><a href="https://soccerstore.vn/hd-dat-hang/">Hướng dẫn đặt hàng</a></li>
+            <li id="menu-item-42402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42402"><a href="https://soccerstore.vn/cau-hoi-thuong-gap-soccerstore-vn-giay-bong-da-chinh-hang/">Câu hỏi thường gặp</a></li>
+            <li id="menu-item-42403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42403"><a href="https://soccerstore.vn/chinh-sach-giao-hang/">Chính sách bán hàng</a></li>
+            <li id="menu-item-42404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42404"><a href="https://soccerstore.vn/gioi-thieu/">Giới thiệu</a></li>
+            </ul></nav>          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+                <div class="row">
+                  <div style="margin-left: 500px;">© 2013-2023 BẢN QUYỀN THUỘC <a href="#">THANG.VN</a></div>
+                </div>
+              
+        </footer>
+      </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

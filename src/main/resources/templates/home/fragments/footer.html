@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+
+</head>
+<body>
+    <div th:fragment="footer"><footer class="row" style="background-color: rgb(22, 20, 20); color: #ffffff;" >
+        
+            <div class="container-fluid" >
+              <div class="row" style="margin-top: 14px;">
+                <div class="col-4  footer-item footer-item--showroom" >
+                  <h4 class="footer-item__heading">Showroom</h4>
+                  <div class="footer-item__content">
+                    <div class="showroom">
+        <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Đống Đa</h6>
+        <p>Số 2 ngõ 121 Thái Hà, Đống Đa, Hà Nội</p>
+        </div>
+        <div class="showroom">
+        <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Hà Đông</h6>
+        <p>Số 14-LK 25 ( đối diện 86 ) Lê Lai, Hà Đông, Hà Nội</p>
+        </div>
+        <div class="showroom">
+        <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Cầu Giấy</h6>
+        <p>Số 22 ngõ 30 Trần Quý Kiên, Cầu Giấy, HN</p>
+        </div>
+        <div class="showroom">
+        <h6 class="showroom__heading"><i class="ti-location-pin"></i>Showroom Hải Phòng</h6>
+        <p>Số 748 Ngô Gia Tự, Hải An, Hải Phòng</p>
+        </div>
+                  </div>
+                </div>
+                <div class="col-4  footer-item footer-item--email" style="margin-left: 20px;">
+                  <h4 class="footer-item__heading">Nhập email nhận voucher giảm giá</h4>
+                  <div class="footer-item__content">
+                    <form class="form-subscribe" method="POST" action="?">
+                      <input type="hidden" name="action" value="willgroup_insert_email">
+                      <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Nhập email của bạn" name="email">
+                      </div>
+                      <button class="btn btn-default btn-subscribe" type="submit" style="margin-left: 150px; margin-top: 8px; width: 150px; background-color: red; font-size: 18px;">
+                        <i class="ti-email"></i>
+                        Gửi              </button>
+                    </form>
+                    
+                    
+                  </div>
+                </div>
+                <div class="col-3  footer-item" >
+                  <h4 class="footer-item__heading">Link</h4>
+                  <div class="footer-item__content">
+                    <nav class="footer-nav"><ul id="menu-dieu-huong-footer" class="menu"><li id="menu-item-42405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42405"><a href="https://soccerstore.vn/huong-dan/">Hướng dẫn thanh toán</a></li>
+        <li id="menu-item-42407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42407"><a href="https://soccerstore.vn/hd-dat-hang/">Hướng dẫn đặt hàng</a></li>
+        <li id="menu-item-42402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42402"><a href="https://soccerstore.vn/cau-hoi-thuong-gap-soccerstore-vn-giay-bong-da-chinh-hang/">Câu hỏi thường gặp</a></li>
+        <li id="menu-item-42403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42403"><a href="https://soccerstore.vn/chinh-sach-giao-hang/">Chính sách bán hàng</a></li>
+        <li id="menu-item-42404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42404"><a href="https://soccerstore.vn/gioi-thieu/">Giới thiệu</a></li>
+        </ul></nav>          </div>
+                </div>
+              </div>
+            </div>
+         
+
+          
+            <div class="row">
+              <div style="margin-left: 500px;">© 2013-2023 BẢN QUYỀN THUỘC <a th:href="@{/admin/products/home}">THANG.VN</a></div>
+            </div>
+          
+    </footer></div>
+</body>
+</html>  

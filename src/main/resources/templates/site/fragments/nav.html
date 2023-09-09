@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+          *{
+            padding: 0;
+            margin: 0;
+          }
+          body{
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            color: black;
+            line-height: 1.15;
+          }
+          #wrapper{
+            max-width: 1170px;
+            margin: 0 auto;
+          }
+          .nav{
+            font-size: 30px;
+            color: red;
+            font-weight: 600;
+          }
+          .headline{
+            text-align: center;
+            margin: 40px 0px;
+          }
+          h3{
+            
+            padding: 10px 20px;
+            text-transform:  uppercase;
+            border: 1px solid #bebebe;
+            display: inline-block;
+            color: #555;
+          }
+          ul.products{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
+          
+          ul.products li{
+            flex-basis: 25%;
+            padding-left: 15px;
+            padding-right: 15px;
+            box-sizing: border-box;
+    
+          }
+          ul.products li img{
+            max-width: 100%;
+            height: auto;
+          }
+          ul.products li .product-top{
+            position: relative;
+            overflow: hidden;
+          }
+          ul.products li .product-top .product-thumb{
+            display: block;
+    
+          }
+          ul.products li:hover .product-top .product-thumb img{
+            filter: opacity(80%);
+    
+          }
+          ul.products li .product-top .product-thumb img{
+            display: block;
+          }
+          ul.products li .product-top a.buy-now{
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 0px;
+            position: absolute;
+            width: 100%;
+            transition: 0.25s ease-in-out;
+            opacity: 0.9;
+          }
+          ul.products li:hover a.buy-now{
+            bottom: 0px;
+    
+          }
+          ul.products li .product-info{
+            padding: 5px 0px;
+          }
+          
+          
+          ul.products li .product-info a{
+            display: block;
+            text-decoration: none;
+          }
+          ul.products li .product-info a.product-cat{
+           font-size: 11px;
+           text-transform: uppercase ;
+           color: #9e9e9e;
+           
+          }
+          ul.products li .product-info a.product-name{
+            color: #334862;
+            
+          }
+          ul.products li .product-info .product-price{
+            color: #111;
+            padding: 2px 0px;
+            font-weight: 600;
+          }
+    
+    
+       </style>
+</head>
+<body>
+    <div th:fragment="nav" >
+              <nav class="navbar navbar-expand-sm  "  style="background-color: rgb(22, 20, 20) ; color: #ffffff; width: 1400px; margin-left: -15px; font-size: 25px; font-weight: 600;">
+                      
+                      
+                <div class="collapse navbar-collapse" id="collapsibleNavId"  >
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-left: 200px">
+                      <li class="nav-item " >
+                        <a class="nav" th:href="@{/user/home/}" style="color: red;"><span class="nav-link" href="#">Trang Chu</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav" th:href="@{/user/home?name=WHEY}" style="color: red;"><span class="nav-link" href="#">WHEY</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a  class="nav" th:href="@{/user/home?name=MASS}" style="color: red;"><span class="nav-link" href="#">MASS</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav" th:href="@{/user/home?name=BCAA}" style="color: red;"><span class="nav-link" href="#">BCAA,EAA</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav" th:href="@{/user/home?name=Vitamin}" style="color: red;"><span class="nav-link" href="#">Vitamin</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav" th:href="@{/user/home?name=PK}" style="color: red;"><span class="nav-link" href="#">Phụ Kiện</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav" th:href="@{/user/home?name=BCAA}" style="color: red;"><span class="nav-link" href="#">Liên Hệ </span></a>
+                      </li>
+                      
+                      
+                      <li class="nav-item">
+                        <a class="nav" th:href="@{/admin/login}" style="color: red;"><span class="nav-link" href="#">Quản Lý </span></a>
+                        
+                    </li>
+                    
+                    
+                    <li class="nav-item" style="margin-left: 140px;">
+                      <a th:href="@{/shopping-cart/views}" style="font-size: 25px;"><span class="nav-link" href=""><i class="fas fa-shopping-cart" ></i> </span></a>
+                  </li>
+                    <li class="nav-item" >
+                      <a class="button" th:href="@{/home}" style="color: red;"><button class="btn btn-outline-primary ml-2" >Đăng Xuất</button></a>
+                  </li>
+                   
+                      
+                      
+                     
+                  </ul>
+     
+              </div>
+               </nav>
+          </div>
+</body>
+</html>  

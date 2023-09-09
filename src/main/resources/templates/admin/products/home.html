@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{home/dashboardLayout.html}">
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+        *{
+          padding: 0;
+          margin: 0;
+        }
+        body{
+          font-family: 'Roboto', sans-serif;
+          font-size: 14px;
+          color: black;
+          line-height: 1.15;
+        }
+        #wrapper{
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+       
+        .headline{
+          text-align: center;
+          margin: 40px 0px;
+        }
+        h3{
+          
+          padding: 10px 20px;
+          text-transform:  uppercase;
+          border: 1px solid #bebebe;
+          display: inline-block;
+          color: #555;
+        }
+        ul.products{
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        
+        ul.products li{
+          flex-basis: 25%;
+          padding-left: 15px;
+          padding-right: 15px;
+          box-sizing: border-box;
+  
+        }
+        ul.products li img{
+          max-width: 100%;
+          height: auto;
+        }
+        ul.products li .product-top{
+          position: relative;
+          overflow: hidden;
+        }
+        ul.products li .product-top .product-thumb{
+          display: block;
+  
+        }
+        ul.products li:hover .product-top .product-thumb img{
+          filter: opacity(80%);
+  
+        }
+        ul.products li .product-top .product-thumb img{
+          display: block;
+        }
+        ul.products li .product-top a.buy-now{
+          text-transform: uppercase;
+          text-decoration: none;
+          text-align: center;
+          display: block;
+          background-color: #000000;
+          color: #fff;
+          padding: 10px 0px;
+          position: absolute;
+          width: 100%;
+          transition: 0.25s ease-in-out;
+          opacity: 0.9;
+        }
+        ul.products li:hover a.buy-now{
+          bottom: 0px;
+  
+        }
+        ul.products li .product-info{
+          padding: 5px 0px;
+        }
+        
+        
+        ul.products li .product-info a{
+          display: block;
+          text-decoration: none;
+        }
+        ul.products li .product-info a.product-cat{
+         font-size: 11px;
+         text-transform: uppercase ;
+         color: #9e9e9e;
+         
+        }
+        ul.products li .product-info a.product-name{
+          color: #334862;
+          
+        }
+        ul.products li .product-info .product-price{
+          color: #111;
+          padding: 2px 0px;
+          font-weight: 600;
+        }
+  
+  
+     </style>
+   </head>
+
+    <body>
+    
+          <section class="row" layout:fragment="content" style="margin-right: 200px;" >
+           
+              <div id="wrapper">
+    <div id="productCarouselId" class="carousel" data-ride="carousel" >
+        <ol class="carousel-indicators">
+            <li data-target="#productCarouselId" data-slide-to="0" class="active"></li>
+            <li data-target="#productCarouselId" data-slide-to="1" class=""></li>
+            <li data-target="#productCarouselId" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="https://www.wheystore.vn/upload/banner/upl_banner_1684555243_image_1684555243.jpg" style="height: 600px; " >
+            </div>
+            <div class="carousel-item ">
+              <img src="https://www.wheystore.vn/upload/banner/upl_banner_1685437707_image_1685437707.jpg" style="height: 600px; " >
+            </div>
+            <div class="carousel-item">
+              <img src="https://www.wheystore.vn/upload/banner/upl_banner_1677467150_image_1677467150.jpg" style="height: 600px;" >
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#productCarouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only" style="background-color: brown;">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#productCarouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+        <div class="headline">
+          <h3>Sản Phẩm Bán Chạy2</h3>
+        </div>
+        
+        <ul class="products"   th:if="${productPage.hasContent()}" >
+            
+          <li  th:each=" item, iStat : ${productPage.content}">
+            <div class="product-item">
+              <div class="product-top">
+                <a href="" class="product-thumb">
+                  <td align="center"><img  th:src="'/uploads/images/' + ${item.image}" width="500" height="300"/></td>
+                </a>
+                <a th:href="@{/login}" class="buy-now" >Mua Ngay</a>
+
+              </div>
+              <div class="product-info"> 
+                
+                 <div href="" class="product-name" th:text="${item.name}" style="font-size: 20px; text-align: center;"></div>
+                 <div class="product-price" th:text="${item.unitPrice}" style="font-size: 15px; color: red; text-align: center;"></div>
+              </div>
+            </div>
+          </li>
+       
+          
+          </ul>
+
+          <a class="button" th:href="@{/home?size=5000}" style="margin-left: 700px; font-size: 20px; color: black;" >hiển thị tất cả</a>
+          <div class="card-footer text-muted">
+           <!-- <form action="">
+                <div class="form-inline float-left">
+                    <label for="size">Page Size:</label>
+                    <select name="size" id="size" class="form-control" onchange="this.form.submit()">
+                        
+                        
+                        
+                      <option th:selected="${productPage.size == 30}" value="30">20</option>
+                        <option th:selected="${productPage.size == 30}" value="30">30</option>
+                        <option th:selected="${productPage.size == 30}" value="30">40</option>
+                        <option th:selected="${productPage.size == 5000}" value="5000">All</option>
+                    </select>
+                </div>
+            </form> -->
+           <nav aria-label="Page navigation" th:if="${productPage.totalPages > 0}">
+             <ul class="pagination justify-content-center">
+               <li th:class="${ 1 == productPage.number + 2} ? 'page-item active' : 'page-item'">
+                 <a th:href="@{/home(name = ${name}, size=${productPage.size}, page=${1})}"
+                               class="page-link">First</a>
+               </li>
+
+               <li class="page-item active" th:each="pageNumber : ${pageNumbers}"
+                                            th:if="${productPage.totalPages > 1}" 
+                                            th:class="${pageNumber == productPage.number + 1} ? 'page-item active' : 'page-item'" > 
+                   <a th:href="@{/home(name = ${name}, size=${productPage.size}, page=${pageNumber})}"
+                                            class="page-link" th:text="${pageNumber }"></a>
+              </li>
+
+               <li th:class="${ productPage.totalPages == productPage.number + 1} ? 'page-item active' : 'page-item'">
+                <a th:href="@{/home(name = ${name}, size=${productPage.size}, page=${productPage.totalPages  })}"
+                              class="page-link">Last</a>
+              </li>
+             </ul>
+           </nav>
+          </div>
+        </div>
+          </section>
+          
+    </body>
+</html>

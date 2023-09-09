@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{site/dashboardLayout.html}">
+  <head>
+    
+   </head>
+
+    <body>
+      
+          
+          <section class="row"  layout:fragment="content" style="width: 800px; margin-left: 300px;" >
+            
+              
+
+              <div class="container" >
+                
+                <form method="get" th:action="@{/shopping-cart/thanhtoan}" >
+                    
+                    <div class="card">
+                        <div class="card-header">
+                           <h2 style="margin-left: 170px;">Thông Tin Nhận Hàng</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                              <label for="category">Họ và Tên:</label>
+                              <input type="text" class="form-control" name="category" id="category" aria-describedby="categoryHid" placeholder="Họ Và Tên">
+                              
+                            </div>
+                           
+                            <div class="form-group">
+                              <label for="name">Số Điện Thoại:</label>
+                              <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHid" placeholder="SĐT">
+                              
+                            </div>
+                            
+                              <div class="form-group">
+                                <label for="name">Địa Chỉ:</label>
+                                <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHid" placeholder="Địa Chỉ">
+                                
+                              </div>
+                            
+
+                              <label for="name">Đơn Hàng:</label>
+                            <form method="post" th:action="@{/shopping-cart/update}" th:each=" item : ${CART_ITEMS}">
+                                <input type="hidden" name="id" th:value="${item.productId}" />
+                            
+                                <div class="row">
+                                     <div class="col-6">
+                                        <a style="margin-left: 20px;" ><img  th:src="'/uploads/images/' + ${item.image}" width="50" height="40"/></a>
+                                         <a th:text="${item.name }"></a>
+                                     </div>
+                                     <div class="col-6">
+                                        <a style="margin-left: 50px;" th:text="${item.unitPrice*item.qty - item.discount*item.qty }"></a>
+                                     </div>
+                                </div>
+
+                            </form>
+
+                       
+                        </div>
+
+                    
+    
+                        <div class="card-footer">
+                           
+    
+                            <a onclick="thanhcong()" style="background-color: red; margin-top: 8px;   width: 700px; height: 40px; font-size: 18px; font-weight: 800;" class="btn btn-primary btn-sm"  th:href="@{/user/home}">Thanh Toán <span style=" font-weight: 800; margin-left: 10px;" th:text="${TOTAL}"></span></a>
+                        </div>
+                    </div>
+    
+                    </div>
+                </form>
+                <script>
+                  function thanhcong(){
+                    
+                    
+                    
+                  
+                    alert(` Thanh Toán Thành Công `);
+                  }
+                </script>
+        
+            </div>
+
+
+
+
+          </section>
+          
+  
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

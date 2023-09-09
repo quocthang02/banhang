@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+</head>
+<body>
+	<div th:fragment="header">
+		<header
+			style="background-color: rgb(22, 20, 20); color: #ffffff; width: 1400px; margin-left: -15px;">
+			<div class="row">
+				<nav class="navbar navbar-expand-sm  " style="color: #ffffff;">
+
+
+					<div class="collapse navbar-collapse" id="collapsibleNavId">
+						<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+							<li class="nav-item "><a th:href="@{/user/home}"> <img
+									th:href="@{/user/home}"
+									src="https://www.wheystore.vn/upload/website/logo_image_1587131466.png"
+									alt="" style="width: 150px; height: 60px; margin-left: 20px;">
+							</a></li>
+
+
+							<form th:action="@{/user/home}">
+
+								<div class="form-inline float-right" style="margin-left: 300px;">
+
+									<input type="text" name="name" id="name" class="form-control"
+										placeholder="name" aria-describedby="helpId"
+										style="width: 400px;">
+									<button class="btn btn-outline-primary ml-2">Search</button>
+								</div>
+
+							</form>
+
+							<li class="nav-item dropdown" style="margin-left: 300px;">
+								<div
+									th:if="${#httpServletRequest.getSession().getAttribute('username')}">
+									<p>
+										Xin chào, <span
+											th:text="${#httpServletRequest.getSession().getAttribute('username')}"></span>
+									</p>
+								</div>
+							</li>
+							<li class="nav-item"></li>
+						</ul>
+
+					</div>
+				</nav>
+
+
+
+			</div>
+
+		</header>
+	</div>
+</body>
+</html>

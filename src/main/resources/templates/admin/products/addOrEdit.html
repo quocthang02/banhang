@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{admin/dashboardLayout.html}">
+  <head>
+    
+   </head>
+
+   <body>
+      
+        <section class="row" layout:fragment="content">
+          
+            <div class="col mt-4 ">
+                <form action="/admin/products/saveOrUpdate" method="post" th:object="${product}" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-header">
+                           <h2 th:text="${product.isEdit ? 'Cập Nhập Sản Phẩm' : 'Thêm Mới Sản Phẩm'}"></h2>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+    
+                            <div class="col-7">
+                              <input type="hidden" th:field="*{isEdit}">
+                              <div class="form-group" th:if="${product.isEdit}">
+                                <label for="product">Id:</label>
+                                <input type="text" class="form-control" name="product" id="product" aria-describedby="productHid" 
+                                th:field="*{productId}" placeholder="product">
+                                <small id="productHid" class="form-text text-muted">Product id is required</small>
+                              </div>
+                             
+                              <div class="form-group">
+                                <label for="name">Tên Sản Phẩm</label>
+                                <input type="text" class="form-control" name="name" id="name"
+                                th:field="*{name}" aria-describedby="nameHid" placeholder="name">
+                                <small id="nameHid" class="form-text text-muted">Name is required</small>
+                              </div>
+                              <div class="form-group">
+                                <label for="quantity">Số Lượng</label>
+                                <input type="text" class="form-control" name="quantity" id="quantity" 
+                                th:field="*{quantity}" aria-describedby="quantityHid" placeholder="quantity">
+                                <small id="quantityHid" class="form-text text-muted">Quantity is required</small>
+                              </div>
+                              <div class="input-group form-group">
+                                <span class="input-group-text">Đơn Giá</span>
+                                <input type="number" class="form-control" name="unitPrice" id="unitPrice" 
+                                th:field="*{unitPrice}" placeholder="Unit Price">
+                                <span class="input-group-text">$</span>
+                              </div>
+                             
+                              <div class="form-group">
+                                <label for="categoryId">Loại Hàng</label>
+                                <select class="form-control" name="categoryId" id="categoryId" th:field="*{categoryId}">
+                                  <option th:each="item : ${categories}" th:value="${item.categoryId}"
+                                  th:text="${item.name}" th:selected="${item.categoryId == product.categoryId}">Category Name</option>
+                                 
+                                </select>
+                              </div>
+                              
+                            </div>
+    
+                            <div class="col-3">
+                                <script>
+                                    function chooseFile(fileInput){
+                                        if(fileInput.files && fileInput.files[0]){
+                                        var reader = new FileReader();
+
+                                        reader.onload = function(e){
+                                            $('#image').attr('src', e.target.result);
+                                        }
+                                        reader.readAsDataURL(fileInput.files[0]);
+                                    }
+                                }
+                                </script>
+                              <img id="image" th:src="${product.image!=null? '/admin/products/images/' + product.image : '/html/images/rule1.png'}" 
+                                             width="90%"  class="img-fluid" alt="">
+                              <div class="form-group">
+                                <label for="productImage">Ảnh</label>
+                                <input type="file" onchange="chooseFile(this)" class="form-control-file" name="imageFile"
+                                 id="productImage" placeholder="productImage" aria-describedby="productImage">
+                                <small id="productImage" class="form-text text-muted">Product Image id required</small>
+                              </div>
+                              <div class="input-group form-group">
+                                <span class="input-group-text">Giảm Giá</span>
+                                <input type="number" class="form-control" name="discount" id="discount"  
+                                th:field="*{discount}" placeholder="Discount">
+                                <span class="input-group-text">$</span>
+                              </div>
+                              <div class="form-group">
+                                <label for="status">Trạng Thái</label>
+                                <select class="form-control" name="status" id="status" th:field="*{status}">
+                                  <option value="0">Đang Giảm Giá</option>
+                                  <option value="1">Hết Hàng</option>
+                                  
+                                  
+                                </select>
+                              </div>
+                            
+                            </div>
+                          </div>
+    
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="description">Mô tả</label>
+                                <textarea class="form-control" name="description"
+                                th:field="*{description}" id="description" rows="5"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                           
+                        </div>
+                    
+    
+                        <div class="card-footer" >
+                           <div style="margin-left: 500px;">
+                            <button  class="btn btn-primary" th:text="${product.isEdit? 'Cập Nhập' : 'Lưu'}"> Lưu</button>
+                           
+                           
+                           <a th:href="@{/admin/products/list }" class="btn btn-success">Danh Sách </a>
+                           
+                           <a th:href="@{/admin/products/add }"  class="btn btn-secondary">Làm Mới</a>
+                           <a th:if="${product.isEdit}" th:href="@{'/admin/products/delete/' + ${product.productId}}" 
+                           class="btn btn-danger">Xoá</a>
+                        </div>
+                        </div>
+                    </div>
+    
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+
+   
+  </body>
+</html>
