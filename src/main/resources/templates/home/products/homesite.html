@@ -156,6 +156,21 @@
                       
                      
                   </ul>
+                  
+                  <ul class="header__login">
+            <div th:if="${#strings.equals(#httpServletRequest.getSession().getAttribute('role'), 'ADMIN')}">
+              <li class="nav-item mx-2">
+                  <a th:href="@{/admin/categories/add}" class="btn btn-danger">
+                      5
+                  </a>
+              </li>
+          </div>
+                
+                <div th:if="${#httpServletRequest.getSession().getAttribute('username')}">
+                  <p>Xin chào2, <span th:text="${#httpServletRequest.getSession().getAttribute('fullname')}"></span></p>
+              </div>
+              
+              </ul>
      
               </div>
                </nav>

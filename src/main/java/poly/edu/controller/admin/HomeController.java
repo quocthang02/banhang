@@ -34,7 +34,7 @@ public class HomeController {
 	
 	@Autowired
 	ProductService  productService;
-	@GetMapping("home")
+	@GetMapping("home1")
 	   public String search(ModelMap model, 
 			   @RequestParam(name= "name", required = false) String name, 
 			   @RequestParam(name= "category", required = false) String category,
@@ -71,7 +71,7 @@ public class HomeController {
 	   }
 	
 	
-	@RequestMapping("user/home")
+	@RequestMapping("home")
 	   public String site(ModelMap model, 
 			   @RequestParam(name= "name", required = false) String name, 
 			   @RequestParam(name= "category", required = false) String category,

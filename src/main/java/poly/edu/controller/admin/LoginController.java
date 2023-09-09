@@ -51,16 +51,48 @@ public class LoginController {
     		 return new ModelAndView("admin/accounts/login", model);
     	 }
     	 session.setAttribute("username", account.getUsername());
-    	 Object ruri = session.getAttribute("redirect-uri");//Kiểm tra đăng nhập chưa
-    	 if (ruri != null) {
-    		 session.removeAttribute("redirect-uri");
-			return new ModelAndView("redirect: " + ruri);
-		}
+    	 session.setAttribute("fullname", account.getFullname());
+      	session.setAttribute("role", account.getRole());
+//    	 Object ruri = session.getAttribute("redirect-uri");//Kiểm tra đăng nhập chưa
+//    	 if (ruri != null) {
+//    		 session.removeAttribute("redirect-uri");
+//    		 
+//			return new ModelAndView("redirect: " + ruri);
+//		}
+    	 
+    	 
     	 
     	 
  //   	 return new ModelAndView("admin/products/homesite", model);
-    	 return new ModelAndView("forward:/user/home", model);
+    	 return new ModelAndView("forward:/home", model);
      }
+     
+//     @PostMapping("alogin")
+//     public ModelAndView login(ModelMap model, 
+//     		@Valid @ModelAttribute("account") AdminLoginDto dto,
+//     		BindingResult result) {
+//     	if(result.hasErrors()) {
+//     		return new ModelAndView("/admin/accounts/login2", model);
+//     		
+//     	}
+//     	Account account = accountService.login(dto.getUsername(), dto.getPassword());
+//     	if(account == null) {
+//     		model.addAttribute("message", "Vui long kiem tra lai TK va MK");
+//     		return new ModelAndView("/admin/accounts/login2", model);
+//     	}
+//     	session.setAttribute("username", account.getUsername());
+//     	session.setAttribute("fullname", account.getFullname());
+//     	session.setAttribute("role", account.getRole());
+////     	Object ruri = session.getAttribute("redirect-uri");
+////     	if(ruri !=null) {
+////     		session.removeAttribute("redirect-uri");
+////     		return new ModelAndView("redirect:" +ruri);
+////     		
+////     	}
+//     	
+//     	return new ModelAndView("forward:/home/", model);
+//     	
+//     }
      @GetMapping("dangky")
      public String add(Model model) {
   	   model.addAttribute("account", new AccountDto());
@@ -97,5 +129,15 @@ public class LoginController {
     	 
     	// return new ModelAndView("admin/products/homeadmin", model);
     	 return new ModelAndView("forward:/admin/home", model);
+     }
+     @PostMapping("/logout")
+     public String logout(HttpSession session) {
+         // Xóa các thuộc tính liên quan đến đăng nhập khỏi session
+         session.removeAttribute("username");
+         session.removeAttribute("fullname");
+         session.removeAttribute("role");
+         
+         // Chuyển hướng về trang đăng nhập
+         return "redirect:/home";
      }
 }
