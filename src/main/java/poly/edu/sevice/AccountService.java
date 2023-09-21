@@ -78,4 +78,8 @@ public interface AccountService {
 
 	Account login(String username, String password);
 
+	Account findByUsernameAndPassword(String username, String password);
+
+	Account findByUsername(String username);
+
 }

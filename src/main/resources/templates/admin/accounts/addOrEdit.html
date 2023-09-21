@@ -36,8 +36,13 @@
                         </div>
                         <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" th:field="*{password}" id="password" aria-describedby="passwordHid" placeholder="password">
-                          <small th:if="${#fields.hasErrors('password')}" id="passwordHid" class="form-text text-muted">Name is required</small>
+                          <input type="password" class="form-control"  th:field="*{password}" id="password" aria-describedby="passwordHid" placeholder="password">
+                          <small th:if="${#fields.hasErrors('password')}" id="passwordHid" class="form-text text-muted">Password is required</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="icon-lp">Fullname</label>
+                            <input type="text" name="fullname" id="fullname"th:field="*{fullname}" aria-describedby="fullnameHid" class="form-control" placeholder="Fullname" value="" required="">
+                            <small th:if="${#fields.hasErrors('fullname')}" id="fullnameHid" class="form-text text-muted">Name is required</small>
                         </div>
                     </div>
                 

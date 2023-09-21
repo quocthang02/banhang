@@ -31,4 +31,16 @@ public class AccountDto implements Serializable{
 	private AccountRole role;
 	private String currentPassword;
 	private String newPassword;
+	
+//	@NotEmpty
+//	@Length(min= 4)
+//	private String username;
+//	@NotEmpty
+//	@Length(min= 4)
+//	private String password;
+//	private String fullname;
+//	private Boolean isEdit = false;
+//	private AccountRole role;
+//	private String currentPassword;
+//	private String newPassword;
 }

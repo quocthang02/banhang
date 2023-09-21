@@ -68,6 +68,8 @@ public class AccountController {
 	   return new ModelAndView("redirect:/admin/accounts/list", model) ;
    }
    
+
+   
    @GetMapping("delete/{username}")
    public ModelAndView delete( ModelMap model, @PathVariable("username") String username) {
 	   
@@ -90,6 +92,18 @@ public class AccountController {
 	   model.addAttribute("message", "Account is saved");
 	   return new ModelAndView("redirect:/admin/accounts/list", model) ;
    }
+//   @PostMapping("saveOrUpdate")
+//	public ModelAndView saveOrUpdate(ModelMap model, @Valid @ModelAttribute("account") AccountDto dto,
+//			BindingResult result) {
+//		if (result.hasErrors()) {
+//			return new ModelAndView("admin/accounts/addOrEdit");
+//		}
+//		Account entity = new Account();
+//		BeanUtils.copyProperties(dto, entity);
+//		accountService.save(entity);
+//		model.addAttribute("message", "Thêm thành công");
+//		return new ModelAndView("forward:/admin/accounts", model);// redirect:
+//	}
    @PostMapping("saveAccount")
    public ModelAndView saveAccount(ModelMap model,@Valid @ModelAttribute("account") AccountDto dto, BindingResult result ) {
 	   if (result.hasErrors()) {

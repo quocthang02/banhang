@@ -35,6 +35,22 @@ public class AccountServiceIpml implements  AccountService{
     	}
     	return null;
     }
+    @Override
+	public Account findByUsernameAndPassword(String username, String password) {
+		Optional<Account> optional = accountRepository.findByUsernameAndPassword(username, password);
+		if (optional.isPresent()) {
+			return optional.get();
+		}
+		return null;
+	}
+    @Override
+	public Account findByUsername(String username) {
+		Optional<Account> optional = accountRepository.findByUsername(username);
+		if (optional.isPresent()) {
+			return optional.get();
+		}
+		return null;
+	}
 	@Override
 	public  Account save(Account entity) {
 //		entity.setPassword(bCryptPasswordEncoder.encode(entity.getPassword()));
